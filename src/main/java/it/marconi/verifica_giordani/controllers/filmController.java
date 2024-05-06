@@ -27,6 +27,11 @@ public class filmController {
         return new ModelAndView("Films-list").addObject("film", servizioFilm.findAll());
     }
 
+    @GetMapping("/films/deleted")
+    public ModelAndView deletedAll(){
+        return new ModelAndView("Films-list").addObject("deleteAll", servizioFilm.deleteAll());
+    }
+
     @GetMapping("/films/nuovo")
     public ModelAndView newFilm(){
         return new ModelAndView ("film-form").addObject("filmForm", new listFilm());
@@ -47,13 +52,9 @@ public class filmController {
     }
 
     @GetMapping("films/delete/{codice}") 
-    public ModelAndView deleteContact(
-        @PathVariable("codice") String codice,
-        RedirectAttributes attr
-    ) {
+    public ModelAndView deleteContact(@PathVariable("codice") String codice,RedirectAttributes attr) {
         servizioFilm.deleteById(codice); 
 
-        // aggiunto un boolean agli attributi del redirect
         attr.addFlashAttribute("deleted", true);
         return new ModelAndView("redirect:/films");
     }

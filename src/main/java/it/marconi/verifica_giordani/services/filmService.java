@@ -34,13 +34,19 @@ public class filmService {
     }
 
     // metodo che permette l'eliminazione di tutto il catalogo
-    public void deleteAll() {
+    public ArrayList<listFilm> deleteAll() {
         films.clear();
+        return films;
     }
 
     //eliminazine del signolo elemento tramite codice
-    public void deleteById(String codice) {
-        films.remove(codice);
+    public ArrayList<listFilm> deleteById(String codice) {
+        for (int i= 0; i<films.size(); i++) {
+            if (films.get(i).getCodice().equals(codice)) {
+                films.remove(i);
+            }
+        }
+        return films;
     }
 
 }

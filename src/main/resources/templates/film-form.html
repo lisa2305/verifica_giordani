@@ -26,8 +26,15 @@
                 </div>
             </div>
             <div>
-                <label>Genere</label><br>
-                <input th:type="text" th:field="*{genere}">
+                <!-- menu a tentina  -->
+                <label>Genere</label>
+                <select name="genere">
+                    <option value="giallo" name="genere">giallo</option>
+                    <option value="fantasy" name="genere">fantasy</option>
+                    <option value="romantico" name="genere">romantico</option>
+                    <option value="comico" name="genere">comico</option>
+                </select>
+                <!--<input th:type="text" th:field="*{genere}">-->
                 <!--Controlli del validator-->
                 <div th:if="${#fields.hasErrors('genere')}">
                     <span th:errors="*{genere}" class="text-danger"></span>
@@ -42,8 +49,15 @@
                 </div>
             </div>
             <div>
-                <label>Voto</label><br>
-                <input th:type="text" th:field="*{voto}">
+                <label>Voto</label>
+                <select name="voto">
+                    <option value="1" name="voto">1</option>
+                    <option value="2" name="voto">2</option>
+                    <option value="3" name="voto">3</option>
+                    <option value="4" name="voto">4</option>
+                    <option value="5" name="voto">5</option>
+                </select>
+                <!--<input th:type="text" th:field="*{voto}">-->
                 <!--Controlli del validator-->
                 <div th:if="${#fields.hasErrors('voto')}">
                     <span th:errors="*{voto}" class="text-danger"></span>
@@ -51,8 +65,8 @@
             </div>
 
             <div>
-                <input class="btn btn-success" type="submit" value="Conferma"/>
-                <input class="btn btn-secondary" type="reset" value="Svuota form"/>
+                <input class="btn btn-success" type="submit" value="Conferma" />
+                <input class="btn btn-secondary" type="reset" value="Svuota form" />
                 <a th:href="@{/films}" class="btn btn-primary">Indietro</a>
             </div>
         </form>
